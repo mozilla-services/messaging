@@ -16,17 +16,24 @@ Sending messages
 Overview: Each message is encrypted with an AES key and this key is sent
 encrypted to the recipients.
 
-1. For each message M, generate an AES Key;
-2. For each recipient device, do the following:
-   a. temp_priv_key, temp_pub_key = new Keypair()
-   b. shared_secret = Diffie(recipent_device_pub_key, temp_priv_key)
-   c. derive encryption key and mac key from the shared_secret.
-      encryption_key = hash(shared_secret)
-      mac_key = hash(encryption_key)
-   d. encrypted_message = encrypt(M, aes_key)
-   e. recipients = [{encrypted_aes_key: encrypt(aes_key, encryption_key),
-                     msg_sig: sign(M, mac_key),
-                     msg_pub_key: temp_pub_key}]
+- 1. For each message M, generate an AES Key;
+- 2. For each recipient device, do the following:
+
+    - a. ``temp_priv_key, temp_pub_key = new Keypair()``
+    - b. ``shared_secret = Diffie(recipent_device_pub_key, temp_priv_key)``
+    - c. derive ``encryption key`` and ``mac key`` from the ``shared_secret``
+
+         ``encryption_key = hash(shared_secret)``
+
+         ``mac_key = hash(encryption_key)``
+    - d. encrypted_message = encrypt(M, aes_key)
+    - e. 
+        ::
+
+            recipients = [{encrypted_aes_key: encrypt(aes_key, encryption_key),
+                          msg_sig: sign(M, mac_key),
+                          msg_pub_key: temp_pub_key}]
+
 
 Receiving messages
 ------------------
