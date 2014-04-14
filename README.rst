@@ -1,6 +1,10 @@
 FxChat-Server
 #############
 
+.. image:: https://secure.travis-ci.org/mozilla-services/messaging.png?branch=master
+   :target: http://travis-ci.org/#!/mozilla-services/messaging
+   :alt: Travis-ci: continuous integration status.
+
 Definition of the service is still in flux, read the wiki here:
 https://wiki.mozilla.org/CloudServices/FxChat
 
