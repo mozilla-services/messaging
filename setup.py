@@ -24,7 +24,7 @@ setup(name='fxchat',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      install_requires=['cornice', 'waitress'],
+      install_requires=['cornice', 'waitress', 'pynacl'],
       entry_points="""\
       [paste.app_factory]
       main = fxchat:main
